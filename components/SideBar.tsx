@@ -6,7 +6,7 @@ import {
   BuildingLibraryIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import IconButton from "./IconButton";
 import { useRouter } from "next/router";
 import { usePlaylistContext } from "../contexts/PlaylistContext";
@@ -35,11 +35,7 @@ const SideBar = () => {
   return (
     <div className=" scrollbar-hide text-gray-500 px-5 pt-5 pb-36 text-xs lg:text-sm border-r border-gray-900 h-screen overflow-y-scroll sm:max-w-[12rem] lg:max-w-[15rem] hidden md:block">
       <div className="space-y-4">
-        {session?.user ? (
-          <button onClick={() => signOut()}>
-            {session.user.name} - Log Out
-          </button>
-        ) : (
+        {!session?.user && (
           <button
             className="bg-[#18d860] p-5 rounded-2xl text-black font-bold hover:bg-[#65fea0] "
             onClick={() => router.push("/login")}

@@ -6,4 +6,7 @@
     .icon {
         @apply h-6 w-6
     }
+    .icon-playback{
+        @apply icon cursor-pointer hover:scale-150 hover:text-blue-400
+    }
 }
